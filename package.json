@@ -1,0 +1,22 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:duo && npm run build:browserify",
+    "build:duo": "duo duo-index.js > build/duo-bundle.js",
+    "build:browserify": "browserify browserify-index.js -o build/browserify-bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "dependencies": {
+    "fmt": "^0.5.0",
+    "uid": "0.0.2"
+  },
+  "devDependencies": {
+    "browserify": "^6.3.2",
+    "duo": "^0.8.10"
+  }
+}

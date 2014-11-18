@@ -1,0 +1,38 @@
+{
+  "index.js": {
+    "id": "index.js",
+    "type": "js",
+    "mtime": 1416288587000,
+    "src": "var uid = require('matthewmueller/uid');\nvar fmt = require('yields/fmt');\n\nvar msg = fmt('Your unique ID is %s!', uid());\n\nvar display = document.querySelector('.display');\nvar text = document.createTextNode(msg);\n\ndisplay.appendChild(text);\n",
+    "deps": {
+      "matthewmueller/uid": "components/matthewmueller-uid@0.0.2/index.js",
+      "yields/fmt": "components/yields-fmt@0.1.0/index.js"
+    },
+    "entry": true
+  },
+  "components/matthewmueller-uid@0.0.2/index.js": {
+    "id": "components/matthewmueller-uid@0.0.2/index.js",
+    "type": "js",
+    "mtime": 1373931414000,
+    "src": "/**\n * Export `uid`\n */\n\nmodule.exports = uid;\n\n/**\n * Create a `uid`\n *\n * @param {String} len\n * @return {String} uid\n */\n\nfunction uid(len) {\n  len = len || 7;\n  return Math.random().toString(35).substr(2, len);\n}\n",
+    "deps": {}
+  },
+  "components/yields-fmt@0.1.0/index.js": {
+    "id": "components/yields-fmt@0.1.0/index.js",
+    "type": "js",
+    "mtime": 1411723713000,
+    "src": "\n/**\n * toString.\n */\n\nvar toString = window.JSON\n  ? JSON.stringify\n  : function(_){ return String(_); };\n\n/**\n * Export `fmt`\n */\n\nmodule.exports = fmt;\n\n/**\n * Formatters\n */\n\nfmt.o = toString;\nfmt.s = String;\nfmt.d = parseInt;\n\n/**\n * Format the given `str`.\n *\n * @param {String} str\n * @param {...} args\n * @return {String}\n * @api public\n */\n\nfunction fmt(str){\n  var args = [].slice.call(arguments, 1);\n  var j = 0;\n\n  return str.replace(/%([a-z])/gi, function(_, f){\n    return fmt[f]\n      ? fmt[f](args[j++])\n      : _ + f;\n  });\n}\n",
+    "deps": {}
+  },
+  "duo-index.js": {
+    "id": "duo-index.js",
+    "type": "js",
+    "mtime": 1416289279000,
+    "src": "var uid = require('matthewmueller/uid');\nvar fmt = require('yields/fmt');\n\nvar msg = fmt('Your unique ID is %s!', uid());\n\nvar display = document.querySelector('.display');\nvar text = document.createTextNode(msg);\n\ndisplay.appendChild(text);",
+    "deps": {
+      "matthewmueller/uid": "components/matthewmueller-uid@0.0.2/index.js",
+      "yields/fmt": "components/yields-fmt@0.1.0/index.js"
+    },
+    "entry": true
+  }
+}
