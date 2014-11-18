@@ -7,6 +7,8 @@ A [Browserify](http://browserify.org/ "Browserify") port of [Duo](http://duojs.o
 ## Installation
 
 ```
+git clone --recursive https://github.com/azu/duo-and-browserify-example.git
+cd duo-and-browserify-example
 npm install
 ```
 
